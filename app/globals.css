@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.1) rotate(360deg);
+  }
+}
+
+@keyframes rotateMedium {
+  from {
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.1) rotate(360deg);
+  }
+}
+
+@keyframes rotateFast {
+  from {
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.1) rotate(360deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+textarea::placeholder {
+  font-family: 'Roobert TRIAL', sans-serif !important;
+  color: #1A1B1C;
+  opacity: 0.4;
+  letter-spacing: -7%;
+}
+
+textarea::-webkit-input-placeholder {
+  font-family: 'Roobert TRIAL', sans-serif !important;
+  color: #1A1B1C;
+  opacity: 0.4;
+  letter-spacing: -7%;
+}
+
+textarea::-moz-placeholder {
+  font-family: 'Roobert TRIAL', sans-serif !important;
+  color: #1A1B1C;
+  opacity: 0.4;
+  letter-spacing: -7%;
+}
+
+textarea {
+  color: #1A1B1C;
+  opacity: 1;
+}
