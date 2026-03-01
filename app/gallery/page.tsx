@@ -113,6 +113,10 @@ export default function GalleryPage() {
         @media (max-width: 480px) {
           .scan-title-label { width: 138px !important; right: -36px !important; top: 35px !important; }
           .gallery-title-label { width: 132px !important; left: -31px !important; bottom: 23px !important; }
+          .camera-permission-popup { top: 2% !important; left: 18% !important; right: 0 !important; }
+        }
+        @media (max-width: 768px) {
+          .camera-permission-popup { top: 4% !important; left: 12% !important; right: 40px !important; }
         }
       `}</style>
       {/* Navbar */}
@@ -621,7 +625,7 @@ export default function GalleryPage() {
 
         {/* Camera Permission Popup */}
         {showCameraPermission && (
-          <div style={{
+          <div className="camera-permission-popup" style={{
             position: 'fixed',
             top: "10%",
             left: 0,
