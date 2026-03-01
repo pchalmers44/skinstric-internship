@@ -107,12 +107,12 @@ export default function GalleryPage() {
           .gallery-title-label { width: 165px !important; height: auto !important; left: -55px !important; bottom: 18px !important; }
         }
         @media (max-width: 768px) {
-          .scan-title-label { width: 150px !important; right: -46px !important; top: 16px !important; }
-          .gallery-title-label { width: 140px !important; left: -38px !important; bottom: 20px !important; }
+          .scan-title-label { width: 160px !important; right: -40px !important; top: 24px !important; }
+          .gallery-title-label { width: 150px !important; left: -34px !important; bottom: 12px !important; }
         }
         @media (max-width: 480px) {
-          .scan-title-label { width: 128px !important; right: -28px !important; top: 14px !important; }
-          .gallery-title-label { width: 122px !important; left: -22px !important; bottom: 22px !important; }
+          .scan-title-label { width: 138px !important; right: -24px !important; top: 22px !important; }
+          .gallery-title-label { width: 132px !important; left: -18px !important; bottom: 10px !important; }
         }
       `}</style>
       {/* Navbar */}
