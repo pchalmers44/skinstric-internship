@@ -76,72 +76,16 @@ export default function TestPage() {
           .test-svg-medium { width: 250px !important; height: 250px !important; }
           .test-svg-small { width: 200px !important; height: 200px !important; }
           .test-textarea { font-size: 14px !important; }
+          .test-location-input { width: 220px !important; }
         }
         @media (max-width: 480px) {
           .test-svg-large { width: 200px !important; height: 200px !important; }
           .test-svg-medium { width: 160px !important; height: 160px !important; }
           .test-svg-small { width: 120px !important; height: 120px !important; }
           .test-textarea { font-size: 12px !important; }
+          .test-location-input { width: 190px !important; }
         }
       `}</style>
-      {/* SVG Diamond Border - Three layers with different rotation speeds */}
-      <svg
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          width: 'clamp(200px, 34.72vw, 500px)',
-          height: 'clamp(200px, 34.72vw, 500px)',
-          transform: 'translate(-50%, -50%) rotate(45deg)',
-          opacity: 1,
-          pointerEvents: 'none',
-          zIndex: 1,
-          animation: 'rotateSlow 70s linear infinite',
-          overflow: 'visible',
-        }}
-        viewBox="0 0 500 500"
-        preserveAspectRatio="none"
-      >
-        <rect x="1" y="1" width="498" height="498" fill="none" stroke="#A0A4AB" strokeWidth="2" strokeDasharray="0.1,8" strokeLinecap="round" />
-      </svg>
-      <svg
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          width: 'clamp(200px, 34.72vw, 500px)',
-          height: 'clamp(200px, 34.72vw, 500px)',
-          transform: 'translate(-50%, -50%) rotate(45deg)',
-          opacity: 0.6,
-          pointerEvents: 'none',
-          zIndex: 1,
-          animation: 'rotateMedium 60s linear infinite',
-          overflow: 'visible',
-        }}
-        viewBox="0 0 500 500"
-        preserveAspectRatio="none"
-      >
-        <rect x="1" y="1" width="498" height="498" fill="none" stroke="#A0A4AB" strokeWidth="2" strokeDasharray="0.1,8" strokeLinecap="round" />
-      </svg>
-      <svg
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          width: 'clamp(200px, 34.72vw, 500px)',
-          height: 'clamp(200px, 34.72vw, 500px)',
-          transform: 'translate(-50%, -50%) rotate(45deg)',
-          opacity: 0.4,
-          pointerEvents: 'none',
-          zIndex: 1,
-          animation: 'rotateFast 50s linear infinite',
-          overflow: 'visible',
-        }}
-        viewBox="0 0 500 500"
-        preserveAspectRatio="none"
-      >
-        <rect x="1" y="1" width="498" height="498" fill="none" stroke="#A0A4AB" strokeWidth="2" strokeDasharray="0.1,8" strokeLinecap="round" />
-      </svg>
       {/* Navbar */}
       <nav className="flex justify-between items-start px-8" style={{ height: '90px', fontSize: '10px', paddingTop: '17px' }}>
         <div>
@@ -163,7 +107,65 @@ export default function TestPage() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 relative">
-        <div className="flex flex-col items-center relative">
+        {/* SVG Diamond Border - anchored to main content center */}
+        <svg
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: 'clamp(200px, 34.72vw, 500px)',
+            height: 'clamp(200px, 34.72vw, 500px)',
+            transform: 'translate(-50%, -50%) rotate(45deg)',
+            opacity: 1,
+            pointerEvents: 'none',
+            zIndex: 1,
+            animation: 'rotateSlow 70s linear infinite',
+            overflow: 'visible',
+          }}
+          viewBox="0 0 500 500"
+          preserveAspectRatio="none"
+        >
+          <rect x="1" y="1" width="498" height="498" fill="none" stroke="#A0A4AB" strokeWidth="2" strokeDasharray="0.1,8" strokeLinecap="round" />
+        </svg>
+        <svg
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: 'clamp(200px, 34.72vw, 500px)',
+            height: 'clamp(200px, 34.72vw, 500px)',
+            transform: 'translate(-50%, -50%) rotate(45deg)',
+            opacity: 0.6,
+            pointerEvents: 'none',
+            zIndex: 1,
+            animation: 'rotateMedium 60s linear infinite',
+            overflow: 'visible',
+          }}
+          viewBox="0 0 500 500"
+          preserveAspectRatio="none"
+        >
+          <rect x="1" y="1" width="498" height="498" fill="none" stroke="#A0A4AB" strokeWidth="2" strokeDasharray="0.1,8" strokeLinecap="round" />
+        </svg>
+        <svg
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: 'clamp(200px, 34.72vw, 500px)',
+            height: 'clamp(200px, 34.72vw, 500px)',
+            transform: 'translate(-50%, -50%) rotate(45deg)',
+            opacity: 0.4,
+            pointerEvents: 'none',
+            zIndex: 1,
+            animation: 'rotateFast 50s linear infinite',
+            overflow: 'visible',
+          }}
+          viewBox="0 0 500 500"
+          preserveAspectRatio="none"
+        >
+          <rect x="1" y="1" width="498" height="498" fill="none" stroke="#A0A4AB" strokeWidth="2" strokeDasharray="0.1,8" strokeLinecap="round" />
+        </svg>
+        <div className="flex flex-col items-center relative" style={{ marginTop: 'clamp(24px, 3.33vw, 48px)' }}>
           {!showLocation && (
             <>
               <p 
@@ -177,7 +179,7 @@ export default function TestPage() {
                 width: 'clamp(70px, 6.67vw, 96px)',
                 height: 'clamp(16px, 1.67vw, 24px)',
                 opacity: 0.4,
-                marginTop: '-100px'
+                marginTop: 'clamp(-100px, -6.94vw, -48px)'
                 }}
               >
                 click to type
@@ -222,7 +224,7 @@ export default function TestPage() {
                       lineHeight: 'clamp(16px, 1.67vw, 24px)',
                       letterSpacing: '0%',
                       opacity: 0.4,
-                      marginTop: '-100px'
+                      marginTop: 'clamp(-100px, -6.94vw, -48px)'
                       }}
                     >
                       where are you from?
@@ -232,7 +234,7 @@ export default function TestPage() {
                     <div
                       style={{
                         textAlign: 'center',
-                        marginTop: '-100px',
+                        marginTop: 'clamp(-100px, -6.94vw, -48px)',
                       }}
                     >
                       <div
@@ -270,7 +272,7 @@ export default function TestPage() {
                       onChange={(e) => setLocation(e.target.value)}
                       onKeyDown={handleLocationKeyDown}
                       placeholder="Where are you from?"
-                      className="p-0 border-b-2 border-black focus:outline-none resize-none"
+                      className="test-location-input p-0 border-b-2 border-black focus:outline-none resize-none"
                       rows={1}
                       style={{ 
                         fontSize: 'clamp(20px, 3.33vw, 48px)',
@@ -279,8 +281,7 @@ export default function TestPage() {
                         fontWeight: 400,
                         lineHeight: 'clamp(24px, 3.61vw, 52px)',
                         letterSpacing: '-7%',
-                        width: 'fit-content',
-                        maxWidth: '600px',
+                        width: 'clamp(260px, 31vw, 460px)',
                         background: 'transparent',
                         overflow: 'visible',
                         scrollbarWidth: 'none',
@@ -293,7 +294,7 @@ export default function TestPage() {
                 </>
               )}
               {showThankYou && (
-                <div className="flex flex-col items-center" style={{ marginTop: '-100px' }}>
+                <div className="flex flex-col items-center" style={{ marginTop: 'clamp(-100px, -6.94vw, -48px)' }}>
                   <p
                     style={{
                       fontSize: 'clamp(14px, 1.39vw, 20px)',
