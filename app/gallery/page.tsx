@@ -99,6 +99,20 @@ export default function GalleryPage() {
           .gallery-svg-medium { width: 192px !important; height: 192px !important; }
           .gallery-svg-small { width: 160px !important; height: 160px !important; }
           .upload-text { font-size: 12px !important; }
+          .scan-title-label { width: 210px !important; height: auto !important; right: -100px !important; }
+          .gallery-title-label { width: 185px !important; height: auto !important; left: -82px !important; }
+        }
+        @media (max-width: 1024px) {
+          .scan-title-label { width: 180px !important; height: auto !important; right: -72px !important; top: 20px !important; }
+          .gallery-title-label { width: 165px !important; height: auto !important; left: -55px !important; bottom: 18px !important; }
+        }
+        @media (max-width: 768px) {
+          .scan-title-label { width: 150px !important; right: -46px !important; top: 16px !important; }
+          .gallery-title-label { width: 140px !important; left: -38px !important; bottom: 20px !important; }
+        }
+        @media (max-width: 480px) {
+          .scan-title-label { width: 128px !important; right: -28px !important; top: 14px !important; }
+          .gallery-title-label { width: 122px !important; left: -22px !important; bottom: 22px !important; }
         }
       `}</style>
       {/* Navbar */}
@@ -300,10 +314,13 @@ export default function GalleryPage() {
                   alt="Scan Title"
                   width={239}
                   height={76}
+                  className="scan-title-label"
                   style={{
                     position: 'absolute',
                     top: '30px',
                     right: '-125px',
+                    width: 'clamp(128px, 16.6vw, 239px)',
+                    height: 'auto',
                   }}
                 />
               </div>
@@ -438,10 +455,13 @@ export default function GalleryPage() {
                   alt="Title"
                   width={210}
                   height={93}
+                  className="gallery-title-label"
                   style={{
                     position: 'absolute',
                     bottom: '10px',
                     left: '-100px',
+                    width: 'clamp(122px, 14.6vw, 210px)',
+                    height: 'auto',
                   }}
                 />
               </div>

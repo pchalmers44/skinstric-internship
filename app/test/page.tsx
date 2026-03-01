@@ -239,11 +239,11 @@ export default function TestPage() {
                     >
                       <div
                         style={{
-                          fontSize: '24px',
+                          fontSize: 'clamp(14px, 1.67vw, 20px)',
                           color: '#1A1B1C',
                           fontFamily: "Inter, sans-serif",
                           fontWeight: 400,
-                          lineHeight: '24px',
+                          lineHeight: 'clamp(18px, 1.67vw, 24px)',
                           letterSpacing: '0%',
                           marginTop: '20px',
                         }}
@@ -252,11 +252,11 @@ export default function TestPage() {
                       </div>
                       <div
                         style={{
-                          fontSize: '24px',
+                          fontSize: 'clamp(14px, 1.67vw, 20px)',
                           color: '#1A1B1C',
                           fontFamily: "Inter, sans-serif",
                           fontWeight: 400,    
-                          lineHeight: '24px',
+                          lineHeight: 'clamp(18px, 1.67vw, 24px)',
                           letterSpacing: '8px',
                           marginTop: '20px',
                         }}
