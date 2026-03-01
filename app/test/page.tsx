@@ -90,8 +90,8 @@ export default function TestPage() {
           position: 'fixed',
           top: '50%',
           left: '50%',
-          width: '500px',
-          height: '500px',
+          width: 'clamp(200px, 34.72vw, 500px)',
+          height: 'clamp(200px, 34.72vw, 500px)',
           transform: 'translate(-50%, -50%) rotate(45deg)',
           opacity: 1,
           pointerEvents: 'none',
@@ -109,8 +109,8 @@ export default function TestPage() {
           position: 'fixed',
           top: '50%',
           left: '50%',
-          width: '500px',
-          height: '500px',
+          width: 'clamp(200px, 34.72vw, 500px)',
+          height: 'clamp(200px, 34.72vw, 500px)',
           transform: 'translate(-50%, -50%) rotate(45deg)',
           opacity: 0.6,
           pointerEvents: 'none',
@@ -128,8 +128,8 @@ export default function TestPage() {
           position: 'fixed',
           top: '50%',
           left: '50%',
-          width: '500px',
-          height: '500px',
+          width: 'clamp(200px, 34.72vw, 500px)',
+          height: 'clamp(200px, 34.72vw, 500px)',
           transform: 'translate(-50%, -50%) rotate(45deg)',
           opacity: 0.4,
           pointerEvents: 'none',
@@ -169,13 +169,13 @@ export default function TestPage() {
               <p 
                 className="text-sm mb-2 uppercase whitespace-nowrap relative z-10" 
                 style={{ 
-                fontSize: '14px',
+                fontSize: 'clamp(10px, 0.97vw, 14px)',
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 400,
-                lineHeight: '24px',
+                lineHeight: 'clamp(16px, 1.67vw, 24px)',
                 letterSpacing: '0%',
-                width: '96px',
-                height: '24px',
+                width: 'clamp(70px, 6.67vw, 96px)',
+                height: 'clamp(16px, 1.67vw, 24px)',
                 opacity: 0.4,
                 marginTop: '-100px'
                 }}
@@ -190,19 +190,19 @@ export default function TestPage() {
                 className="p-0 border-b-2 border-black focus:outline-none resize-none relative z-10 placeholder-gray-900"
                 rows={1}
                 style={{ 
-                  fontSize: '60px',
+                  fontSize: 'clamp(24px, 4.17vw, 60px)',
                   color: '#1A1B1C',
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 400,
-                  lineHeight: '64px',
+                  lineHeight: 'clamp(28px, 4.44vw, 64px)',
                   letterSpacing: '-7%',
-                  width: 'fit-content',
-                  maxWidth: '500px',
+                  width: 'clamp(220px, 29.17vw, 420px)',
                   background: 'transparent',
                   overflow: 'hidden',
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none',
                   textAlign: 'center',
+                  borderBottomWidth: 'clamp(1px, 0.14vw, 2px)',
                 }}
               />
             </>
@@ -216,10 +216,10 @@ export default function TestPage() {
                     <p 
                       className="text-sm mb-2 uppercase" 
                       style={{ 
-                      fontSize: '14px',
+                      fontSize: 'clamp(10px, 0.97vw, 12px)',
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 400,
-                      lineHeight: '24px',
+                      lineHeight: 'clamp(16px, 1.67vw, 24px)',
                       letterSpacing: '0%',
                       opacity: 0.4,
                       marginTop: '-100px'
@@ -273,11 +273,11 @@ export default function TestPage() {
                       className="p-0 border-b-2 border-black focus:outline-none resize-none"
                       rows={1}
                       style={{ 
-                        fontSize: '60px',
+                        fontSize: 'clamp(20px, 3.33vw, 48px)',
                         color: '#1A1B1C',
                         fontFamily: "Inter, sans-serif",
                         fontWeight: 400,
-                        lineHeight: '64px',
+                        lineHeight: 'clamp(24px, 3.61vw, 52px)',
                         letterSpacing: '-7%',
                         width: 'fit-content',
                         maxWidth: '600px',
@@ -286,6 +286,7 @@ export default function TestPage() {
                         scrollbarWidth: 'none',
                         msOverflowStyle: 'none',
                         textAlign: 'center',
+                        borderBottomWidth: 'clamp(1px, 0.14vw, 2px)',
                       }}
                     />
                   )}
@@ -295,11 +296,11 @@ export default function TestPage() {
                 <div className="flex flex-col items-center" style={{ marginTop: '-100px' }}>
                   <p
                     style={{
-                      fontSize: '20px',
+                      fontSize: 'clamp(14px, 1.39vw, 20px)',
                       color: '#1A1B1C',
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 400,
-                      lineHeight: '24px',
+                      lineHeight: 'clamp(18px, 1.67vw, 24px)',
                       letterSpacing: '0%',
                       textAlign: 'center',
                       marginBottom: '40px',
@@ -309,11 +310,11 @@ export default function TestPage() {
                   </p>
                   <p
                     style={{
-                      fontSize: '20px',
+                      fontSize: 'clamp(14px, 1.39vw, 20px)',
                       color: '#1A1B1C',
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 400,
-                      lineHeight: '24px',
+                      lineHeight: 'clamp(18px, 1.67vw, 24px)',
                       opacity: 0.4,
                     }}
                   >

@@ -80,8 +80,115 @@ export default function ResultsPage() {
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
+      <style>{`
+        @media (max-width: 1200px) {
+          .results-main {
+            gap: 20px !important;
+            padding-top: 20px !important;
+          }
+          .results-sidebar {
+            width: 220px !important;
+          }
+          .results-center,
+          .results-right {
+            height: 640px !important;
+          }
+          .results-right {
+            width: 320px !important;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .results-main {
+            flex-direction: column !important;
+            min-height: auto !important;
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+            gap: 16px !important;
+          }
+          .results-sidebar {
+            width: 100% !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px !important;
+          }
+          .results-category-btn {
+            padding: 16px !important;
+            min-height: 110px !important;
+          }
+          .results-center {
+            width: 100% !important;
+            height: auto !important;
+          }
+          .results-center-card {
+            min-height: 420px !important;
+            padding: 24px !important;
+          }
+          .results-selected-label {
+            font-size: 32px !important;
+          }
+          .results-circle-anchor {
+            position: static !important;
+            margin-top: 16px !important;
+            align-self: center !important;
+          }
+          .results-right {
+            width: 100% !important;
+            height: auto !important;
+            max-height: 360px !important;
+            padding: 20px !important;
+          }
+          .results-back-btn {
+            position: static !important;
+            margin: 20px 16px 0 16px !important;
+            align-self: flex-start !important;
+          }
+          .results-bottom-bar {
+            position: static !important;
+            margin: 20px 16px 0 auto !important;
+            justify-content: flex-end !important;
+          }
+          .results-hint {
+            position: static !important;
+            transform: none !important;
+            margin: 12px 16px 20px 16px !important;
+            text-align: center !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .results-header-wrap {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+          }
+          .results-sidebar {
+            grid-template-columns: 1fr !important;
+          }
+          .results-center-card {
+            min-height: 340px !important;
+            padding: 18px !important;
+          }
+          .results-selected-label {
+            font-size: 26px !important;
+          }
+          .results-bottom-bar {
+            width: calc(100% - 32px) !important;
+            margin: 16px !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+          }
+          .results-bottom-bar button {
+            width: 100% !important;
+          }
+          .results-hint p {
+            font-size: 13px !important;
+          }
+        }
+      `}</style>
       {/* Navbar */}
-      <nav className="flex justify-between items-start px-8" style={{ height: '90px', fontSize: '10px', paddingTop: '17px' }}>
+      <nav className="flex justify-between items-start px-4 md:px-8" style={{ height: '90px', fontSize: '10px', paddingTop: '17px' }}>
         <div>
           <button
             onClick={() => router.push('/')}
@@ -97,29 +204,30 @@ export default function ResultsPage() {
       </nav>
 
       {/* Header Section */}
-      <div style={{ paddingLeft: '32px', paddingRight: '32px', paddingTop: '24px', paddingBottom: '24px' }}>
-        <p style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '-0.02em', margin: 0, color: '#1A1B1C' }}>
+      <div className="results-header-wrap" style={{ paddingLeft: '32px', paddingRight: '32px', paddingTop: '24px', paddingBottom: '24px' }}>
+        <p style={{ fontSize: 'clamp(14px, 1.7vw, 16px)', fontWeight: 600, letterSpacing: '-0.02em', margin: 0, color: '#1A1B1C' }}>
           A.I. ANALYSIS
         </p>
-        <h1 style={{ fontSize: '72px', fontWeight: 400, letterSpacing: '-0.06em', margin: '0', color: '#1A1B1C' }}>
+        <h1 style={{ fontSize: 'clamp(38px, 7vw, 72px)', fontWeight: 400, letterSpacing: '-0.06em', margin: '0', color: '#1A1B1C', lineHeight: 1 }}>
           DEMOGRAPHICS
         </h1>
-        <p style={{ fontSize: '14px', fontWeight: 400, letterSpacing: '0', margin: 0, color: '#1A1B1C' }}>
+        <p style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', fontWeight: 400, letterSpacing: '0', margin: 0, color: '#1A1B1C' }}>
           PREDICTED RACE & AGE
         </p>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex px-8 relative" style={{ minHeight: 'calc(100vh - 300px)', gap: '32px', paddingTop: '32px', alignItems: 'stretch', paddingBottom: '32px' }}>
+      <div className="results-main flex-1 flex px-4 md:px-8 relative" style={{ minHeight: 'calc(100vh - 300px)', gap: '32px', paddingTop: '32px', alignItems: 'stretch', paddingBottom: '32px' }}>
         {loading ? (
           <p style={{ fontSize: '16px' }}>Loading analysis...</p>
         ) : data ? (
           <>
             {/* Left Sidebar - 3 Category Boxes */}
-            <div style={{ width: '280px', display: 'flex', flexDirection: 'column', gap: '24px', flexShrink: 0 }}>
+            <div className="results-sidebar" style={{ width: '280px', display: 'flex', flexDirection: 'column', gap: '24px', flexShrink: 0 }}>
               {/* Race Box */}
               <button
                 onClick={() => setSelectedCategory('race')}
+                className="results-category-btn"
                 style={{
                   backgroundColor: selectedCategory === 'race' ? '#1A1B1C' : '#F3F3F4',
                   color: selectedCategory === 'race' ? 'white' : '#1A1B1C',
@@ -148,6 +256,7 @@ export default function ResultsPage() {
               {/* Age Box */}
               <button
                 onClick={() => setSelectedCategory('age')}
+                className="results-category-btn"
                 style={{
                   backgroundColor: selectedCategory === 'age' ? '#1A1B1C' : '#F3F3F4',
                   color: selectedCategory === 'age' ? 'white' : '#1A1B1C',
@@ -176,6 +285,7 @@ export default function ResultsPage() {
               {/* Gender Box */}
               <button
                 onClick={() => setSelectedCategory('gender')}
+                className="results-category-btn"
                 style={{
                   backgroundColor: selectedCategory === 'gender' ? '#1A1B1C' : '#F3F3F4',
                   color: selectedCategory === 'gender' ? 'white' : '#1A1B1C',
@@ -203,9 +313,10 @@ export default function ResultsPage() {
             </div>
 
             {/* Center - Large Display Card */}
-            <div style={{ flex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: '0', boxSizing: 'border-box', height: '750px' }}>
+            <div className="results-center" style={{ flex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: '0', boxSizing: 'border-box', height: '750px' }}>
               {getSelectedValue() !== null && (
                 <div
+                  className="results-center-card"
                   style={{
                     backgroundColor: '#F3F3F4',
                     borderTop: '1px solid #1A1B1C',
@@ -225,17 +336,17 @@ export default function ResultsPage() {
                 >
                   {/* Item Label - Top Left */}
                   <div style={{ textAlign: 'left' }}>
-                    <h2 style={{ fontSize: '40px', fontWeight: 400, margin: '0 0 8px 0', color: '#1A1B1C' }}>
+                    <h2 className="results-selected-label" style={{ fontSize: 'clamp(28px, 3.6vw, 40px)', fontWeight: 400, margin: '0 0 8px 0', color: '#1A1B1C' }}>
                       {getSelectedLabel()}
                     </h2>
                   </div>
 
                   {/* Percentage Circle - Bottom Right */}
-                  <div style={{ position: 'absolute', bottom: '48px', right: '48px' }}>
+                  <div className="results-circle-anchor" style={{ position: 'absolute', bottom: '48px', right: '48px' }}>
                     <div
                       style={{
-                        width: '384px',
-                        height: '384px',
+                        width: 'clamp(170px, 24vw, 384px)',
+                        height: 'clamp(170px, 24vw, 384px)',
                         position: 'relative',
                         display: 'flex',
                         alignItems: 'center',
@@ -246,7 +357,8 @@ export default function ResultsPage() {
                       <svg
                         width="384"
                         height="384"
-                        style={{ position: 'absolute', top: 0, left: 0 }}
+                        viewBox="0 0 384 384"
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                       >
                         {/* White background circle */}
                         <circle
@@ -284,7 +396,7 @@ export default function ResultsPage() {
                       </svg>
                       
                       {/* Text overlay */}
-                      <span style={{ fontSize: '40px', fontWeight: 400, color: '#1A1B1C', position: 'relative', zIndex: 1 }}>
+                      <span style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 400, color: '#1A1B1C', position: 'relative', zIndex: 1 }}>
                         {formatPercentage(getSelectedValue()!)}
                       </span>
                     </div>
@@ -295,6 +407,7 @@ export default function ResultsPage() {
 
             {/* Right Side - Items List */}
             <div
+              className="results-right"
               style={{
                 width: '400px',
                 flexShrink: 0,
@@ -407,7 +520,7 @@ export default function ResultsPage() {
       {/* Back Button */}
       <button
         onClick={() => router.push('/select')}
-        className="hover:opacity-70 transition"
+        className="results-back-btn hover:opacity-70 transition"
         style={{
           position: 'fixed',
           bottom: '32px',
@@ -429,6 +542,7 @@ export default function ResultsPage() {
 
       {/* Reset and Confirm Buttons */}
       <div
+        className="results-bottom-bar"
         style={{
           position: 'fixed',
           bottom: '32px',
@@ -486,6 +600,7 @@ export default function ResultsPage() {
 
       {/* Bottom Center Text */}
       <div
+        className="results-hint"
         style={{
           position: 'fixed',
           bottom: '40px',

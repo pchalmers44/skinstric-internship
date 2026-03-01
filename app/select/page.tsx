@@ -57,21 +57,29 @@ export default function SelectPage() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 relative">
         <div 
-          style={{ position: 'relative', display: 'inline-block', width: '342px', height: '342px', overflow: 'visible' }}
+          style={{
+            position: 'relative',
+            display: 'inline-block',
+            width: 'clamp(280px, 58.33vw, 525px)',
+            height: 'clamp(280px, 58.33vw, 525px)',
+            overflow: 'visible',
+          }}
           onMouseEnter={() => setIsImageHovered(true)}
           onMouseLeave={() => setIsImageHovered(false)}
         >
           {/* Custom Diamond 1 - 504x504 (inner) */}
           <svg
-            width={isImageHovered ? "504" : "0"}
-            height={isImageHovered ? "504" : "0"}
+            width={isImageHovered ? "620" : "0"}
+            height={isImageHovered ? "620" : "0"}
             viewBox="0 0 604 604"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{
               position: 'absolute',
-              top: '50%',
-              left: '50%',
+              top: 'calc(50% + (clamp(280px, 58.33vw, 525px) * 0.01524))',
+              left: 'calc(50% + (clamp(280px, 58.33vw, 525px) * 0.02286))',
+              width: isImageHovered ? 'calc(clamp(280px, 58.33vw, 525px) * 1.18095)' : '0px',
+              height: isImageHovered ? 'calc(clamp(280px, 58.33vw, 525px) * 1.18095)' : '0px',
               transform: 'translate(-50%, -50%)',
               pointerEvents: 'none',
               opacity: isImageHovered ? 1.2 : 0,
@@ -83,15 +91,17 @@ export default function SelectPage() {
 
           {/* Custom Diamond 2 - 650x650 (middle) */}
           <svg
-            width={isImageHovered ? "650" : "0"}
-            height={isImageHovered ? "650" : "0"}
+            width={isImageHovered ? "760" : "0"}
+            height={isImageHovered ? "760" : "0"}
             viewBox="0 0 650 650"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{
               position: 'absolute',
-              top: '50%',
-              left: '50%',
+              top: 'calc(50% + (clamp(280px, 58.33vw, 525px) * 0.01524))',
+              left: 'calc(50% + (clamp(280px, 58.33vw, 525px) * 0.02286))',
+              width: isImageHovered ? 'calc(clamp(280px, 58.33vw, 525px) * 1.44762)' : '0px',
+              height: isImageHovered ? 'calc(clamp(280px, 58.33vw, 525px) * 1.44762)' : '0px',
               transform: 'translate(-50%, -50%)',
               pointerEvents: 'none',
               opacity: isImageHovered ? 0.8 : 0,
@@ -103,15 +113,17 @@ export default function SelectPage() {
 
           {/* Custom Diamond 3 - 764x764 (outer) */}
           <svg
-            width={isImageHovered ? "764" : "0"}
-            height={isImageHovered ? "764" : "0"}
+            width={isImageHovered ? "900" : "0"}
+            height={isImageHovered ? "900" : "0"}
             viewBox="0 0 764 764"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{
               position: 'absolute',
-              top: '50%',
-              left: '50%',
+              top: 'calc(50% + (clamp(280px, 58.33vw, 525px) * 0.01524))',
+              left: 'calc(50% + (clamp(280px, 58.33vw, 525px) * 0.02286))',
+              width: isImageHovered ? 'calc(clamp(280px, 58.33vw, 525px) * 1.71429)' : '0px',
+              height: isImageHovered ? 'calc(clamp(280px, 58.33vw, 525px) * 1.71429)' : '0px',
               transform: 'translate(-50%, -50%)',
               pointerEvents: 'none',
               opacity: isImageHovered ? 0.6 : 0,
@@ -121,7 +133,7 @@ export default function SelectPage() {
             <path opacity="0.3" d="M382 1L763 382L382 763L1 382L382 1Z" stroke="#A0A4AB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="0.1 8"/>
           </svg>
 
-          <svg width="342" height="342" viewBox="0 0 444 444" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', top: 0, left: 0 }}>
+          <svg width="550" height="550" viewBox="0 0 444 444" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', top: 0, left: 0, width: 'calc(clamp(280px, 58.33vw, 525px) * 1.04762)', height: 'calc(clamp(280px, 58.33vw, 525px) * 1.04762)' }}>
             {/* Top-left quadrant - Clickable (Demographics) */}
             <g
               style={{ cursor: 'pointer' }}

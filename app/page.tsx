@@ -22,20 +22,37 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black flex flex-col">
       <style>{`
         @media (min-width: 1025px) and (max-width: 1440px) {
-          h1 { font-size: 96px !important; line-height: 90px !important; }
+          h1 { font-size: 92px !important; line-height: 86px !important; }
         }
         @media (max-width: 1024px) {
-          h1 { font-size: 64px !important; line-height: 60px !important; }
-          .left-button { display: none; }
-          .right-button { display: none; }
-          .main-content { gap: 0 !important; }
+          h1 { font-size: 60px !important; line-height: 56px !important; }
+          .main-content { gap: 8px !important; }
+          .side-control { width: 120px !important; min-width: 120px !important; }
+          .side-diamond { width: 420px !important; height: 420px !important; }
+          .left-diamond { left: -300px !important; }
+          .right-diamond { right: -300px !important; }
+          .side-cta { width: 120px !important; height: 36px !important; }
+          .side-cta img { width: 120px !important; height: 36px !important; }
         }
         @media (max-width: 768px) {
-          h1 { font-size: 48px !important; line-height: 45px !important; }
+          h1 { font-size: 44px !important; line-height: 42px !important; }
+          .main-content { gap: 4px !important; }
+          .side-control { width: 90px !important; min-width: 90px !important; }
+          .side-diamond { width: 300px !important; height: 300px !important; }
+          .left-diamond { left: -215px !important; }
+          .right-diamond { right: -215px !important; }
+          .side-cta { width: 92px !important; height: 30px !important; }
+          .side-cta img { width: 92px !important; height: 30px !important; }
           .bottom-text { font-size: 12px !important; line-height: 18px !important; }
         }
         @media (max-width: 480px) {
-          h1 { font-size: 36px !important; line-height: 34px !important; }
+          h1 { font-size: 34px !important; line-height: 32px !important; }
+          .side-control { width: 72px !important; min-width: 72px !important; }
+          .side-diamond { width: 230px !important; height: 230px !important; }
+          .left-diamond { left: -165px !important; }
+          .right-diamond { right: -165px !important; }
+          .side-cta { width: 74px !important; height: 24px !important; }
+          .side-cta img { width: 74px !important; height: 24px !important; }
           .bottom-text { font-size: 11px !important; line-height: 16px !important; }
         }
       `}</style>
@@ -52,12 +69,12 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex-1 flex items-center justify-between px-4 md:px-8 relative main-content">
         {/* Left Arrow */}
-        <div className="left-button relative hidden lg:flex items-center justify-center" style={{
+        <div className="left-button side-control relative flex items-center justify-center" style={{
           opacity: isHoveringTakeTest ? 0 : 1,
           transition: 'opacity 400ms'
         }}>
           <div
-            className="absolute"
+            className="absolute side-diamond left-diamond"
             style={{ 
               width: "602px",
               height: "602px",
@@ -72,7 +89,7 @@ export default function Home() {
             onClick={handlePrev}
             onMouseEnter={() => setIsHoveringDiscoverAI(true)}
             onMouseLeave={() => setIsHoveringDiscoverAI(false)}
-            className="hover:opacity-70 transition relative z-10"
+            className="side-cta hover:opacity-70 transition relative z-10"
             style={{ width: "150px", height: "44px", display: "flex", alignItems: "center", justifyContent: "center", padding: 0, background: "none", border: "none", cursor: "pointer", transform: isHoveringDiscoverAI ? "scale(1.2)" : "scale(1)", transition: "transform 300ms" }}
           >
             <Image
@@ -88,8 +105,8 @@ export default function Home() {
         <h1 className="text-center flex-1" style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 300,
-          fontSize: "128px",
-          lineHeight: "120px",
+          fontSize: "120px",
+          lineHeight: "112px",
           letterSpacing: "-7%",
           textAlign: "center",
           width: "100%",
@@ -100,25 +117,25 @@ export default function Home() {
           padding: "0 16px"
         }}>
           <span className="transition-all duration-500 inline-block" style={{
-            transform: isHoveringTakeTest ? 'translateX(-275px)' : isHoveringDiscoverAI ? 'translateX(275px)' : 'translateX(0)',
+            transform: isHoveringTakeTest ? 'translateX(clamp(-380px, -22vw, -70px))' : isHoveringDiscoverAI ? 'translateX(clamp(70px, 22vw, 380px))' : 'translateX(0)',
           }}>
             Sophisticated
           </span>
           <br />
           <span className="transition-all duration-500 inline-block" style={{
-            transform: isHoveringTakeTest ? 'translateX(-350px)' : isHoveringDiscoverAI ? 'translateX(350px)' : 'translateX(0)',
+            transform: isHoveringTakeTest ? 'translateX(clamp(-460px, -26vw, -90px))' : isHoveringDiscoverAI ? 'translateX(clamp(90px, 26vw, 460px))' : 'translateX(0)',
           }}>
             skincare
           </span>
         </h1>
 
         {/* Right Button */}
-        <div className="right-button relative hidden lg:flex items-center justify-center" style={{
+        <div className="right-button side-control relative flex items-center justify-center" style={{
           opacity: isHoveringDiscoverAI ? 0 : 1,
           transition: "opacity 400ms"
         }}>
           <div
-            className="absolute"
+            className="absolute side-diamond right-diamond"
             style={{ 
               width: "602px",
               height: "602px",
@@ -133,7 +150,7 @@ export default function Home() {
             onClick={handleNext}
             onMouseEnter={() => setIsHoveringTakeTest(true)}
             onMouseLeave={() => setIsHoveringTakeTest(false)}
-            className="hover:opacity-70 transition relative z-10"
+            className="side-cta hover:opacity-70 transition relative z-10"
             style={{ width: "150px", height: "44px", display: "flex", alignItems: "center", justifyContent: "center", padding: 0, background: "none", border: "none", cursor: "pointer", transform: isHoveringTakeTest ? "scale(1.2)" : "scale(1)", transition: "transform 300ms" }}
           >
             <Image

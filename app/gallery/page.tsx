@@ -289,8 +289,8 @@ export default function GalleryPage() {
                     width={136}
                     height={136}
                     style={{
-                      width: '136px',
-                      height: '136px',
+                      width: 'clamp(84px, 9.44vw, 136px)',
+                      height: 'clamp(84px, 9.44vw, 136px)',
                       flexShrink: 0,
                     }}
                   />
@@ -329,6 +329,7 @@ export default function GalleryPage() {
               </svg>
 
               <svg
+                className="gallery-svg-medium"
                 style={{
                   position: 'absolute',
                   top: '50%',
@@ -347,6 +348,7 @@ export default function GalleryPage() {
               </svg>
 
               <svg
+                className="gallery-svg-small"
                 style={{
                   position: 'absolute',
                   top: '50%',
@@ -400,6 +402,10 @@ export default function GalleryPage() {
                   alt="Gallery"
                   width={126}
                   height={126}
+                  style={{
+                    width: 'clamp(78px, 8.75vw, 126px)',
+                    height: 'clamp(78px, 8.75vw, 126px)',
+                  }}
                 />
                 <button
                   onClick={() => galleryInputRef.current?.click()}
@@ -421,6 +427,10 @@ export default function GalleryPage() {
                     alt="Gallery Icon"
                     width={112}
                     height={112}
+                    style={{
+                      width: 'clamp(70px, 7.78vw, 112px)',
+                      height: 'clamp(70px, 7.78vw, 112px)',
+                    }}
                   />
                 </button>
                 <Image
@@ -569,17 +579,23 @@ export default function GalleryPage() {
           @media (max-width: 1024px) {
             .gallery-container { width: 300px !important; height: 300px !important; }
             .gallery-icon-wrapper { width: 200px !important; height: 200px !important; }
-            .gallery-svg { width: 200px !important; height: 200px !important; }
+            .gallery-svg-large { width: 200px !important; height: 200px !important; }
+            .gallery-svg-medium { width: 172px !important; height: 172px !important; }
+            .gallery-svg-small { width: 144px !important; height: 144px !important; }
           }
           @media (max-width: 768px) {
             .gallery-container { width: 240px !important; height: 240px !important; }
             .gallery-icon-wrapper { width: 160px !important; height: 160px !important; }
-            .gallery-svg { width: 160px !important; height: 160px !important; }
+            .gallery-svg-large { width: 160px !important; height: 160px !important; }
+            .gallery-svg-medium { width: 137px !important; height: 137px !important; }
+            .gallery-svg-small { width: 114px !important; height: 114px !important; }
           }
           @media (max-width: 480px) {
             .gallery-container { width: 180px !important; height: 180px !important; }
             .gallery-icon-wrapper { width: 120px !important; height: 120px !important; }
-            .gallery-svg { width: 120px !important; height: 120px !important; }
+            .gallery-svg-large { width: 132px !important; height: 132px !important; }
+            .gallery-svg-medium { width: 113px !important; height: 113px !important; }
+            .gallery-svg-small { width: 94px !important; height: 94px !important; }
           }
         `}</style>
 
